@@ -62,10 +62,10 @@ sysinfo.txt
 crashlytics-build.properties
 
 
-Immersive Learning with AR/Library/
+*Library/
 
-Immersive Learning with AR/.vsconfig
+*.vsconfig
 
-Immersive Learning with AR/ProjectSettings/
+*ProjectSettings/
 
-Immersive Learning with AR/UserSettings/
+*UserSettings/
