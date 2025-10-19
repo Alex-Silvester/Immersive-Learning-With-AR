@@ -15,21 +15,23 @@ public class clickScript : MonoBehaviour
     [SerializeField]
     Color incorrect_color;
 
+    [SerializeField]
+    int points;
+
+    [SerializeField]
+    QuestionManager questionManager;
+
+    bool complete = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cube_UI.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void show()
     {
-        cube_UI.gameObject.SetActive(true);
+        cube_UI.gameObject.SetActive(true);    
     }
 
     public void hide()
@@ -39,11 +41,19 @@ public class clickScript : MonoBehaviour
 
     public void answer(bool correct)
     {
+        if(complete)
+        {
+            return;
+        }
+
         if(correct)
         {
             background.color = correct_color;
+            questionManager.addPoints(points);
+            complete = true;
             return;
         }
         background.color = incorrect_color;
+        questionManager.addPoints(-points / 2);
     }
 }
