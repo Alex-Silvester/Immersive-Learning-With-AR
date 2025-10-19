@@ -1,5 +1,0 @@
-C:/3rd Year temp unity/Immersive Learning With AR/Project/.utmp/RelWithDebInfo/6rx5q601/arm64-v8a/CMakeFiles/edit_cache.dir
-C:/3rd Year temp unity/Immersive Learning With AR/Project/.utmp/RelWithDebInfo/6rx5q601/arm64-v8a/CMakeFiles/rebuild_cache.dir
-C:/3rd Year temp unity/Immersive Learning With AR/Project/.utmp/RelWithDebInfo/6rx5q601/arm64-v8a/GameActivity/CMakeFiles/game.dir
-C:/3rd Year temp unity/Immersive Learning With AR/Project/.utmp/RelWithDebInfo/6rx5q601/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
-C:/3rd Year temp unity/Immersive Learning With AR/Project/.utmp/RelWithDebInfo/6rx5q601/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

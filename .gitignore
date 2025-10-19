@@ -69,3 +69,9 @@ crashlytics-build.properties
 *ProjectSettings/
 
 *UserSettings/
+
+Project/Logs/
+
+Project/Temp/
+
+Project/.utmp/
