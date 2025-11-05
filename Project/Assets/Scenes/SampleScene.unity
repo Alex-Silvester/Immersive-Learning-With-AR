@@ -7711,6 +7711,8 @@ MonoBehaviour:
   v: {x: 1, y: -1}
   a: 1
   t: 0
+  time_step: 0.03420966
+  cylinder_prefab: {fileID: 8882602978606360847, guid: c0ab3b68136430542afdcdedfa4d0648, type: 3}
 --- !u!1 &1756045394
 GameObject:
   m_ObjectHideFlags: 0
@@ -8143,7 +8145,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1695515692}
         m_TargetAssemblyTypeName: DrawArc, Assembly-CSharp
         m_MethodName: setTime
         m_Mode: 2
