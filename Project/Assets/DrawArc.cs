@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -100,23 +102,40 @@ namespace Tools
 public class DrawArc : MonoBehaviour
 {
     [SerializeField]
+    float offset = 0;
+    [SerializeField]
+    float time_offset = 0;
+
+    [Header("Target Value")]
+    [SerializeField]
+    float t_target = 1.5f;
+
+    [Space(10)]
+    [Header("Target Distance")]
+    [SerializeField]
     float s = 10;
+
+    [Space(10)]
+    [Header("Input values")]
     [SerializeField]
-    Vector2 u = new Vector2(1,1);
-    [SerializeField]
-    Vector2 v = new Vector2(1,-1);
+    Vector2 u = new Vector2(1, 1);
     [SerializeField]
     float a = 1;
     [SerializeField]
     float t = 0;
 
-    [Space(20)]
-    [SerializeField][Tools.LogRange(0.01f, 0.2f, 1)]
+    [Space(10)]
+    [SerializeField]
+    [Tools.LogRange(0.01f, 0.2f, 1)]
     float time_step = 0.2f;
 
     [Space(20)]
     [SerializeField]
     GameObject cylinder_prefab;
+
+    [Space(20)]
+    [SerializeField]
+    TMP_Text target_distance_text;
 
     List<GameObject> line_segments = new List<GameObject>();
     Vector3 gravity;
@@ -125,6 +144,8 @@ public class DrawArc : MonoBehaviour
     void Start()
     {
         gravity = new Vector3(0, -a, 0);
+
+        target_distance_text.SetText($"Target Distance: {s}");
     }
 
     // Update is called once per frame
@@ -136,7 +157,7 @@ public class DrawArc : MonoBehaviour
         }
 
         line_segments.Clear();
-        PlotTrajectory(gameObject.transform.position, u, time_step, t);
+        PlotTrajectory(gameObject.transform.position - new Vector3(0,offset,0), u, time_step, t);
     }
 
     public Vector3 PlotTrajectoryAtTime(Vector3 start, Vector3 startVelocity, float time)
@@ -151,17 +172,12 @@ public class DrawArc : MonoBehaviour
         {
             float current_time = timestep * i;
 
-            if (current_time > maxTime) 
-            {
-                break; 
-            }
-
-            Vector3 pos = PlotTrajectoryAtTime(start, startVelocity, current_time);
-
-            if(pos.y < 0)
+            if (current_time > maxTime + time_offset)
             {
                 break;
             }
+
+            Vector3 pos = PlotTrajectoryAtTime(start, startVelocity, current_time);
 
             line_segments.Add(Instantiate(cylinder_prefab));
             line_segments[^1].transform.position = prev;
@@ -173,13 +189,18 @@ public class DrawArc : MonoBehaviour
         }
     }
 
-    public void setAcceleration(Slider acc)
-    {
-        gravity = new Vector3(0, -acc.value, 0);
-    }
-
     public void setTime(Slider time)
     {
         t = time.value;
+    }
+
+    public void checkValues()
+    {
+        GetComponent<clickScript>().answer(convertToSingleDecimal(t) == t_target);
+    }
+
+    private float convertToSingleDecimal(float val)
+    {
+        return Mathf.Floor(val * 10.0f) / 10.0f;
     }
 }
