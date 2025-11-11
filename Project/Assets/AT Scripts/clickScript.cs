@@ -16,6 +16,9 @@ public class clickScript : MonoBehaviour
     Color incorrect_color;
 
     [SerializeField]
+    Color default_color;
+
+    [SerializeField]
     int points;
 
     [SerializeField]
@@ -55,5 +58,11 @@ public class clickScript : MonoBehaviour
         }
         background.color = incorrect_color;
         questionManager.addPoints(-points / 2);
+    }
+
+    public void resetColor()
+    {
+        background.color = default_color;
+        cube_UI.gameObject.SetActive(false);
     }
 }

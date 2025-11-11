@@ -27,4 +27,10 @@ public class QuestionManager : MonoBehaviour
         points += added_points;
         points_text.SetText($"Points: {points}");
     }
+
+    public void reset()
+    {
+        points = 0;
+        points_text.SetText($"Points: {points}");
+    }
 }

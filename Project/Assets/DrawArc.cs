@@ -254,4 +254,14 @@ public class DrawArc : MonoBehaviour
     {
         return Mathf.Floor(val * 10.0f) / 10.0f;
     }
+
+    public void resetValues()
+    {
+        bool checking = false;
+        int pos_idx = 1;
+        int lerps = 0;
+        t = 0;
+        canon_ball.transform.position = gameObject.transform.position - new Vector3(0, offset, 0);
+        canon_ball.SetActive(false);
+    }
 }
