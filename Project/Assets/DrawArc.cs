@@ -140,7 +140,11 @@ public class DrawArc : MonoBehaviour
     List<GameObject> line_segments = new List<GameObject>();
     Vector3 gravity;
 
+    [SerializeField]
+    GameObject ball_prefab;
+
     GameObject canon_ball;
+
     bool checking = false;
     int pos_idx = 1;
     int lerps = 0;
@@ -153,7 +157,7 @@ public class DrawArc : MonoBehaviour
 
         target_distance_text.SetText($"Target Distance: {s}");
 
-        canon_ball = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        canon_ball = Instantiate(ball_prefab);
         canon_ball.transform.localScale = new(0.1f, 0.1f, 0.1f);
         canon_ball.transform.position = gameObject.transform.position - new Vector3(0, offset, 0);
         canon_ball.SetActive(false);

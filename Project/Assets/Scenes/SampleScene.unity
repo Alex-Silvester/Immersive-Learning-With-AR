@@ -1453,7 +1453,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 260.10046, y: -210.01508}
+  m_AnchoredPosition: {x: 260.1, y: -268}
   m_SizeDelta: {x: 520.192, y: 126.6164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &330340423
@@ -5125,10 +5125,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 72
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -8197,7 +8197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -371.134, y: -630.725}
+  m_AnchoredPosition: {x: -371.13, y: -712}
   m_SizeDelta: {x: 742.269, y: 884.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1614278670
@@ -8484,6 +8484,7 @@ MonoBehaviour:
   time_step: 0.022569986
   cylinder_prefab: {fileID: 8882602978606360847, guid: c0ab3b68136430542afdcdedfa4d0648, type: 3}
   target_distance_text: {fileID: 1558373760}
+  ball_prefab: {fileID: 0}
   max_lerps: 4
 --- !u!1 &1756045394
 GameObject:
@@ -9677,10 +9678,10 @@ RectTransform:
   - {fileID: 1043425409}
   m_Father: {fileID: 1269870569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -192.59268, y: -214.03432}
-  m_SizeDelta: {x: 116.8146, y: 63.9314}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 232, y: 258}
+  m_SizeDelta: {x: 301.87012, y: 223.8559}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2024258749
 MonoBehaviour:
