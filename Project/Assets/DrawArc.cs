@@ -140,12 +140,23 @@ public class DrawArc : MonoBehaviour
     List<GameObject> line_segments = new List<GameObject>();
     Vector3 gravity;
 
+    GameObject canon_ball;
+    bool checking = false;
+    int pos_idx = 1;
+    int lerps = 0;
+    [SerializeField] int max_lerps = 1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gravity = new Vector3(0, -a, 0);
 
         target_distance_text.SetText($"Target Distance: {s}");
+
+        canon_ball = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        canon_ball.transform.localScale = new(0.1f, 0.1f, 0.1f);
+        canon_ball.transform.position = gameObject.transform.position - new Vector3(0, offset, 0);
+        canon_ball.SetActive(false);
     }
 
     // Update is called once per frame
@@ -158,6 +169,38 @@ public class DrawArc : MonoBehaviour
 
         line_segments.Clear();
         PlotTrajectory(gameObject.transform.position - new Vector3(0,offset,0), u, time_step, t);
+
+        if(checking)
+        {
+            lerps++;
+            canon_ball.transform.position = vectorLerp(line_segments[pos_idx-1].transform.position, line_segments[pos_idx].transform.position, lerps/max_lerps);
+
+            if(lerps != max_lerps)
+            {
+                return;
+            }
+
+            lerps = 0;
+            pos_idx++;
+
+            if(pos_idx == line_segments.Count)
+            {
+                checking = false;
+                getAnswer();
+            }
+        }
+    }
+
+    private Vector3 vectorLerp(Vector3 a, Vector3 b, float t)
+    {
+        float x, y, z;
+
+        x = Mathf.Lerp(a.x, b.x, t);
+        y = Mathf.Lerp(a.y, b.y, t);
+        z = Mathf.Lerp(a.z, b.z, t);
+
+        return new Vector3(x, y, z);
+
     }
 
     public Vector3 PlotTrajectoryAtTime(Vector3 start, Vector3 startVelocity, float time)
@@ -195,6 +238,14 @@ public class DrawArc : MonoBehaviour
     }
 
     public void checkValues()
+    {
+        checking = true;
+        canon_ball.SetActive(true);
+        canon_ball.transform.position = gameObject.transform.position - new Vector3(0, offset, 0);
+        pos_idx = 1;
+    }
+
+    private void getAnswer()
     {
         GetComponent<clickScript>().answer(convertToSingleDecimal(t) == t_target);
     }
