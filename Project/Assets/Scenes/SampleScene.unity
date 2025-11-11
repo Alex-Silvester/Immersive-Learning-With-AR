@@ -8484,7 +8484,7 @@ MonoBehaviour:
   time_step: 0.022569986
   cylinder_prefab: {fileID: 8882602978606360847, guid: c0ab3b68136430542afdcdedfa4d0648, type: 3}
   target_distance_text: {fileID: 1558373760}
-  ball_prefab: {fileID: 0}
+  ball_prefab: {fileID: 2748834615247845217, guid: a6a07357e2995d64b8c0b8f219d579c5, type: 3}
   max_lerps: 4
 --- !u!1 &1756045394
 GameObject:
