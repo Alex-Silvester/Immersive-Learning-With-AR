@@ -1563,6 +1563,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2512387469002778329, guid: 48cb3fb68c91eb94999fd99957eb0cae, type: 3}
+      propertyPath: m_ImageStabilization
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2512387470319625105, guid: 48cb3fb68c91eb94999fd99957eb0cae, type: 3}
       propertyPath: m_OccludeARHitsWith2DObjects
       value: 1
@@ -8719,7 +8723,7 @@ Transform:
   m_GameObject: {fileID: 1695515685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.55}
+  m_LocalPosition: {x: 0, y: 0, z: 2.259}
   m_LocalScale: {x: 0.15, y: 0.3, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10414,7 +10418,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064114410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1.7090001}
   m_LocalScale: {x: 0.0006372816, y: 0.0006372816, z: 0.0006372816}
   m_ConstrainProportionsScale: 0
   m_Children:
