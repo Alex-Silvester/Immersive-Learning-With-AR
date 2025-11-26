@@ -108,7 +108,15 @@ public class DrawArc : MonoBehaviour
     [SerializeField]
     float time_offset = 0;
 
-    [Header("Target Value")]
+    [Header("Target Values")]
+    [SerializeField]
+    float s_target = 1.5f;
+    [SerializeField]
+    Vector2 u_target = new();
+    [SerializeField]
+    Vector2 v_target = new();
+    [SerializeField]
+    float a_target = 1.5f;
     [SerializeField]
     float t_target = 1.5f;
 
@@ -125,6 +133,8 @@ public class DrawArc : MonoBehaviour
     float a = 1;
     [SerializeField]
     float t = 0;
+
+    Vector2 v = new();
 
     [Space(10)]
     [SerializeField]
@@ -153,6 +163,13 @@ public class DrawArc : MonoBehaviour
     int pos_idx = 1;
     int lerps = 0;
     [SerializeField] int max_lerps = 1;
+
+    [Header("Check values")]
+    [SerializeField] bool S = false;
+    [SerializeField] bool U = false;
+    [SerializeField] bool V = false;
+    [SerializeField] bool A = false;
+    [SerializeField] bool T = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -269,7 +286,15 @@ public class DrawArc : MonoBehaviour
 
     private void getAnswer()
     {
-        GetComponent<clickScript>().answer(convertToSingleDecimal(t) == t_target);
+        bool answer = 
+               (S && (convertToSingleDecimal(s_target) == s))
+            || (U && (new Vector2(convertToSingleDecimal(u_target.x), convertToSingleDecimal(u_target.y)) == u))
+            || (V && (new Vector2(convertToSingleDecimal(v_target.x), convertToSingleDecimal(v_target.y)) == v))
+            || (A && (convertToSingleDecimal(a_target) == a))
+            || (T && (convertToSingleDecimal(t_target) == t));
+        print($"{answer}");
+
+        GetComponent<clickScript>().answer(answer);
     }
 
     private float convertToSingleDecimal(float val)

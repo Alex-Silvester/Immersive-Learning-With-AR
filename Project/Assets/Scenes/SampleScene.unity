@@ -1621,7 +1621,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -11423,6 +11423,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 0.12
   time_offset: 0.05
+  s_target: 1.5
+  u_target: {x: 0, y: 0}
+  v_target: {x: 0, y: 0}
+  a_target: 1.5
   t_target: 1.6
   s: 10
   u: {x: 0.5, y: 2.1}
@@ -11434,6 +11438,11 @@ MonoBehaviour:
   ball_prefab: {fileID: 2748834615247845217, guid: a6a07357e2995d64b8c0b8f219d579c5, type: 3}
   start_transform: {fileID: 1695515691}
   max_lerps: 4
+  S: 0
+  U: 0
+  V: 0
+  A: 0
+  T: 1
 --- !u!1 &1715779393
 GameObject:
   m_ObjectHideFlags: 0
@@ -11623,9 +11632,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 0.12
   time_offset: 0.05
+  s_target: 1.5
+  u_target: {x: 0, y: 0}
+  v_target: {x: 0, y: 0}
+  a_target: 1.5
   t_target: 1.6
   s: 3
-  u: {x: 1, y: 1}
+  u: {x: 0.5, y: 0.5}
   a: 1
   t: 3.6
   time_step: 0.022569986
@@ -11634,6 +11647,11 @@ MonoBehaviour:
   ball_prefab: {fileID: 2748834615247845217, guid: a6a07357e2995d64b8c0b8f219d579c5, type: 3}
   start_transform: {fileID: 1730821090}
   max_lerps: 4
+  S: 0
+  U: 0
+  V: 0
+  A: 0
+  T: 0
 --- !u!114 &1730821092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12312,7 +12330,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
