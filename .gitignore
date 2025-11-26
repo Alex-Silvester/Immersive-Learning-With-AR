@@ -75,3 +75,5 @@ Project/Logs/
 Project/Temp/
 
 Project/.utmp/
+
+Project/obj/Debug/
