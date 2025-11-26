@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using TMPro;
+using Unity.Burst;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -143,6 +145,8 @@ public class DrawArc : MonoBehaviour
     [SerializeField]
     GameObject ball_prefab;
 
+    [SerializeField] Transform start_transform;
+
     GameObject canon_ball;
 
     bool checking = false;
@@ -155,7 +159,8 @@ public class DrawArc : MonoBehaviour
     {
         gravity = new Vector3(0, -a, 0);
 
-        target_distance_text.SetText($"Target Distance: {s}");
+        if(target_distance_text != null)
+            target_distance_text.SetText($"Target Distance: {s}");
 
         canon_ball = Instantiate(ball_prefab);
         canon_ball.transform.localScale = new(0.1f, 0.1f, 0.1f);
@@ -172,7 +177,7 @@ public class DrawArc : MonoBehaviour
         }
 
         line_segments.Clear();
-        PlotTrajectory(gameObject.transform.position - new Vector3(0,offset,0), u, time_step, t);
+        PlotTrajectory(start_transform.position - new Vector3(0,offset,0), u, time_step, t);
 
         if(checking)
         {
@@ -214,6 +219,7 @@ public class DrawArc : MonoBehaviour
 
     public void PlotTrajectory(Vector3 start, Vector3 startVelocity, float timestep, float maxTime)
     {
+        float angle_scaler = 180.0f / Mathf.Sqrt(2);
         Vector3 prev = start;
         for (int i = 1; ; i++)
         {
@@ -232,6 +238,8 @@ public class DrawArc : MonoBehaviour
             line_segments[^1].transform.LookAt(pos);
             line_segments[^1].transform.Rotate(90, 0, 0);
 
+            line_segments[^1].transform.RotateAround(start_transform.position, Vector3.up, start_transform.rotation.y * angle_scaler);
+
             prev = pos;
         }
     }
@@ -239,6 +247,16 @@ public class DrawArc : MonoBehaviour
     public void setTime(Slider time)
     {
         t = time.value;
+    }
+
+    public void setInitialXVelocity(Slider val)
+    {
+        u.x = val.value;
+    }
+
+    public void setInitialYVelocity(Slider val)
+    {
+        u.y = val.value;
     }
 
     public void checkValues()
